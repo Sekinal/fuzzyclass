@@ -3,7 +3,6 @@ import numpy as np
 from thefuzz import fuzz
 from thefuzz import process
 import random
-import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 # Function to generate name variations
@@ -131,36 +130,6 @@ print(results.sort_values('token_set_score', ascending=False).head(10))
 print("\nScore distribution:")
 print(results[['token_set_score', 'ratio_score', 
               'partial_ratio_score', 'token_sort_score']].describe())
-
-# Visualize score distributions
-plt.figure(figsize=(15, 10))
-
-plt.subplot(2, 2, 1)
-plt.hist(results['token_set_score'], bins=20, edgecolor='black')
-plt.title('Token Set Score Distribution')
-plt.xlabel('Score')
-plt.ylabel('Frequency')
-
-plt.subplot(2, 2, 2)
-plt.hist(results['ratio_score'], bins=20, edgecolor='black')
-plt.title('Ratio Score Distribution')
-plt.xlabel('Score')
-plt.ylabel('Frequency')
-
-plt.subplot(2, 2, 3)
-plt.hist(results['partial_ratio_score'], bins=20, edgecolor='black')
-plt.title('Partial Ratio Score Distribution')
-plt.xlabel('Score')
-plt.ylabel('Frequency')
-
-plt.subplot(2, 2, 4)
-plt.hist(results['token_sort_score'], bins=20, edgecolor='black')
-plt.title('Token Sort Score Distribution')
-plt.xlabel('Score')
-plt.ylabel('Frequency')
-
-plt.tight_layout()
-plt.show()
 
 # Save results to CSV
 results.to_csv('fuzzy_matching_results.csv', index=False)
