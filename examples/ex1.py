@@ -143,3 +143,9 @@ def find_best_matches(name, df_results, top_n=5):
 example_name = df_original['name'].iloc[0]
 print(f"\nBest matches for {example_name}:")
 print(find_best_matches(example_name, results))
+
+# 10-23-2024
+print(df_original)
+print(df_variants)
+
+df_original.head()
