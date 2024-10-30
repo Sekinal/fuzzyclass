@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
-from thefuzz import fuzz, process
+from thefuzz import fuzz
+from thefuzz import process
 import random
 from tqdm import tqdm
 
